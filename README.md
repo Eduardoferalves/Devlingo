@@ -1,91 +1,118 @@
-# React + TypeScript + Vite
+# Devlingo
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+O Devlingo é uma plataforma de aprendizado de idiomas que ajuda os usuários a aprender novos idiomas através de lições interativas.
 
-Currently, two official plugins are available:
+## Funcionalidades
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Autenticação de usuário (cadastro e login)
+- Lições interativas
+- Acompanhamento de pontuação
+- Status de conclusão de lição
 
-## React Compiler
+## Tecnologias Utilizadas
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- [React](https://reactjs.org/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Vite](https://vitejs.dev/)
+- [Supabase](https://supabase.io/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [React Router](https://reactrouter.com/)
 
-## Expanding the ESLint configuration
+## Começando
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+Para começar a usar o Devlingo, siga estes passos:
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+### Pré-requisitos
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+- [Node.js](https://nodejs.org/) (v18 ou superior)
+- [npm](https://www.npmjs.com/)
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### Instalação
+
+1. Clone o repositório:
+   ```bash
+   git clone https://github.com/Eduardoferalves/Devlingo.git
+   ```
+2. Navegue até o diretório do projeto:
+   ```bash
+   cd Devlingo
+   ```
+3. Instale as dependências:
+   ```bash
+   npm install
+   ```
+4. Crie um arquivo `.env` na raiz do projeto e adicione suas credenciais do Supabase:
+   ```
+    VITE_SUPABASE_URL=seu-url-supabase
+    VITE_SUPABASE_ANON_KEY=sua-chave-anon-supabase
+   ```
+### Rodando a Aplicação
+1. Inicie o servidor de desenvolvimento:
+   ```bash
+   npm run dev
+   ```
+2. Abra seu navegador e navegue até http://localhost:5173 para ver a aplicação em ação.
+
+## Estrutura do Projeto
+```
+.
+├── public
+│   └── vite.svg
+├── src
+│   ├── assets
+│   │   ├── images
+│   │   └── react.svg
+│   ├── components
+│   │   ├── AnswerFeedbackPopUp.tsx
+│   │   ├── Header.tsx
+│   │   ├── LessonModal.tsx
+│   │   ├── LessonNode.tsx
+│   │   ├── LessonsPath.tsx
+│   │   ├── LoadingScreen.tsx
+│   │   ├── ProtectedRoute.tsx
+│   │   └── UnitHero.tsx
+│   ├── contexts
+│   │   ├── AuthContext.tsx
+│   │   └── AuthProvider.tsx
+│   ├── hooks
+│   │   ├── useCompletedLessons.ts
+│   │   └── useUserProfile.ts
+│   ├── mocks
+│   │   └── lessonsData.ts
+│   ├── pages
+│   │   ├── Home.tsx
+│   │   ├── LessonFailureScreen.tsx
+│   │   ├── LessonScreen.tsx
+│   │   ├── LessonSuccessScreen.tsx
+│   │   ├── Login.tsx
+│   │   └── SignUp.tsx
+│   ├── services
+│   │   ├── saveLessonsScore.ts
+│   │   ├── supabase.ts
+│   │   └── userProfile.ts
+│   ├── styles
+│   │   └── globals.css
+│   ├── App.tsx
+│   └── main.tsx
+├── .gitignore
+├── index.html
+├── package.json
+├── README.md
+├── tsconfig.json
+└── vite.config.ts
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Scripts Disponíveis
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+- `npm run dev`: Inicia o servidor de desenvolvimento.
+- `npm run build`: Compila a aplicação para produção.
+- `npm run lint`: Executa o linter no código.
+- `npm run preview`: Inicia um servidor local para visualizar a build de produção.
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## Contribuindo
 
-- configurar o supabase
-- integrar o cadastro com o supabase
-  - faltou só redirecionar
+Contribuições são bem-vindas! Por favor, abra uma issue ou envie um pull request com suas alterações.
 
-- integrar o login com o supabase - 10 min
+## Licença
 
-- buscar os dados do xp do usuário no header - 10 min 
-
-- armazenar as liçoes feitas no supabase 
-- marcar a unidade como concluida
-- integrar as informações na AnswerFeedbackPopUp
-- integrar as informações na LessonModal
-- integrar as informações do resultado das lições em:
- - Lesson Success
- - Lesson Failure
- 
-
+Este projeto está licenciado sob a Licença MIT.
