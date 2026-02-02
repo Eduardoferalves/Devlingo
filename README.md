@@ -1,6 +1,6 @@
 # Devlingo
 
-O Devlingo é uma plataforma de aprendizado de idiomas que ajuda os usuários a aprender novos idiomas através de lições interativas.
+O Devlingo é uma plataforma de aprendizado de idiomas que ajuda os usuários a aprender conceitos de programação com lições interativas.
 
 ## Funcionalidades
 
